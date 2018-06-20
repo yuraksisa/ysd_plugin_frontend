@@ -7,5 +7,6 @@ Plugins::SinatraAppPlugin.register :frontend do
   description= 'tryton'
   version=     '0.1'
   hooker YsdPluginFrontend::FrontendExtension
+  sinatra_extension YsdPluginFrontend::SinatraAdmin
 
 end
