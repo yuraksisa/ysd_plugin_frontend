@@ -10,7 +10,7 @@
             data-remote="ajax" data-remote-method="PUT" class="form-horizontal">
         <% @themes.each do |theme_key, theme_img| %>
           <div class="col-md-6 col-lg-6">
-            <h3 class="content-heading text-center"><%=theme_key%></h3>
+            <h3 class="content-heading text-center"><%=theme_key%>&nbsp;&nbsp;<a href="/" id="frontend_homepage_<%=theme_key%>" target="_blank" class="frontend_homepage" <%if theme_key != @current_theme%>style="display:none"<%end%>><i class="fa fa-external-link"></i></a></h3>
             <div>
                <img src="<%=theme_img%>"/>
             </div>

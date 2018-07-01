@@ -1,8 +1,39 @@
 require(['jquery', 'YSDForms'], function($, YSDForms) {
 
+  model = {
+
+  };
+
+  controller = {
+
+  };
+
+  view = {
+
+      init: function() {
+
+         // YSDForms.improve();
+
+
+          $('form[data-remote="ajax"]').find('button[type="submit"]').bind('click',
+              function() {
+                  var form = $(this.form)[0];
+                  YSDForms.submitAjax(form, {
+                      successCallback: function(data, textStatus, jqXHR) {
+                        $('.frontend_homepage').hide();
+                        $('#frontend_homepage_' + form['frontend.skin'].value).show();
+                      }
+                  });
+                  return false;
+              });
+
+      }
+
+  };
+
+
   $(document).ready(function() {
-
-      YSDForms.improve();
-
+      view.init();
   });
+
 });
