@@ -10,14 +10,27 @@
             data-remote="ajax" data-remote-method="PUT" class="form-horizontal">
         <% @themes.each do |theme_key, theme_img| %>
           <div class="col-md-6 col-lg-6">
-            <h3 class="content-heading text-center"><%=theme_key%>&nbsp;&nbsp;<a href="/" id="frontend_homepage_<%=theme_key%>" target="_blank" class="frontend_homepage" <%if theme_key != @current_theme%>style="display:none"<%end%>><i class="fa fa-external-link"></i></a></h3>
+            <h3 class="content-heading text-center">
+               <div>
+               <%=theme_key%>&nbsp;<a href="/" id="frontend_homepage_<%=theme_key%>" target="_blank" class="frontend_homepage"
+                                      <%if theme_key != @current_theme%>style="display:none"<%end%>><i class="fa fa-external-link"></i></a>
+               </div>
+              <div class="pull-right" style="position: absolute; right: 15px; top: 15px">
+                <a href="/admin/booking/config/front-end-theme/<%=theme_key%>"
+                   id="customize_theme_<%=theme_key%>" class="btn btn-default customize_theme"
+                   <%if theme_key != @current_theme%>style="display:none"<%end%>>Personalizar</a>
+              </div>
+            </h3>
+
             <div>
                <img src="<%=theme_img%>"/>
             </div>
             <br>
+
             <div class="text-center">
               <input type="radio" name="frontend.skin" value="<%=theme_key%>" <%if theme_key == @current_theme%>checked<%end%>/>
             </div>
+
           </div>
         <% end %>
         <div class="form-group">

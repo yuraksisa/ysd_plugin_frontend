@@ -22,6 +22,8 @@ require(['jquery', 'YSDForms'], function($, YSDForms) {
                       successCallback: function(data, textStatus, jqXHR) {
                         $('.frontend_homepage').hide();
                         $('#frontend_homepage_' + form['frontend.skin'].value).show();
+                        $('.customize_theme').hide();
+                        $('#customize_theme_' + form['frontend.skin'].value).show();
                       }
                   });
                   return false;
